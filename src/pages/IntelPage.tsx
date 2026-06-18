@@ -4,6 +4,7 @@ import { AlertRules } from '../components/intel/AlertRules'
 import { SegmentsCohort } from '../components/intel/SegmentsCohort'
 import { AbIntegrations } from '../components/intel/AbIntegrations'
 import { LoggingSpec } from '../components/intel/LoggingSpec'
+import { ContentTracking } from '../components/intel/ContentTracking'
 
 /** 운영 인텔리전스 — enterprise governance + intelligence + integrations. */
 export function IntelPage() {
@@ -15,6 +16,7 @@ export function IntelPage() {
       <SegmentsCohort />
       <AbIntegrations />
       <LoggingSpec />
+      <ContentTracking />
     </div>
   )
 }
