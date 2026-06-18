@@ -16,7 +16,7 @@ npm run preview   # serve the production build
 
 ## What's implemented
 
-**Eight CMS screens are built deeply and interactively**, on a full app shell + design system,
+**Nine CMS screens are built deeply and interactively**, on a full app shell + design system,
 with every remaining module scaffolded behind the same navigation.
 
 **Deep (fully built & interactive):**
@@ -40,11 +40,14 @@ with every remaining module scaffolded behind the same navigation.
   pity per banner, and a pickup-character selector.
 - **운영 인텔리전스 (Ops Intelligence)** — enterprise governance + intelligence: RBAC role card
   (reflects the topbar switcher), Maker-Checker approval queue, threshold alert rules with a live
-  active/paused toggle, auto segments, cohort retention, A/B test board, and integration status.
+  active/paused toggle, auto segments, cohort retention, A/B test board, integration status, a
+  **metrics logging-requirements spec**, and a **CSV-derived content/meta tracking board**.
+- **캐릭터 / 유닛 (Characters)** — the **real ProjectA roster (45 units, parsed from `UnitMaster.csv`)**
+  with rarity/element distribution charts, rarity + element filters, and a detail drawer showing the
+  actual base stats (HP/ATK/DEF/Speed) and rarity level caps (from `GameConstMaster`).
 
 **Scaffolded** (consistent placeholder, ready to fill following the same patterns):
-로그/모니터링 · 종합 보고서 · 이벤트 · 일차/누적 보상 · 상점/패키지 · 미션/업적 ·
-캐릭터/유닛 · KPI · 지식베이스.
+로그/모니터링 · 종합 보고서 · 이벤트 · 일차/누적 보상 · 상점/패키지 · 미션/업적 · KPI · 지식베이스.
 
 ## Architecture
 
@@ -53,8 +56,9 @@ src/
   theme/tokens.ts          design tokens (palette, currency/element/rarity)
   lib/                     format, server-state, user, dashboard/gamelog/payment helpers
   icons/Icon.tsx           single path-driven stroke-icon component
-  data/                    seed/static data (nav, users, coupons, dashboard, mail,
-                           gacha, characters, gamelog, payments, intel)
+  data/                    seed/static data (nav, users, coupons, dashboard, mail, gacha,
+                           characters, gamelog, payments, intel, logging, contentTracking,
+                           projectUnits — real ProjectA UnitMaster roster)
   store/useStore.ts        Zustand store — full state + immutable actions
   components/
     layout/                Sidebar · Topbar · AppShell
@@ -66,8 +70,10 @@ src/
     gamelog/               content-usage accordion · KPI/level/holdings/chapter panels
     payments/              revenue graph · product table
     intel/                 RBAC · approvals · alert rules · segments/cohort · A/B/integrations
-  pages/                   Dashboard · Users · Coupons · Mail · Gacha · GameLog ·
-                           Payments · Placeholder
+                           · logging spec · CSV content-tracking board
+    character/             roster distribution charts · unit detail drawer
+  pages/                   Dashboard · Users · Coupons · Mail · Gacha · GameLog · Payments ·
+                           Intel · Character · Placeholder
 ```
 
 - **State**: a single Zustand store holds shell, dashboard, user, and coupon state; all updates
