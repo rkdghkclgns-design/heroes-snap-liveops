@@ -3,6 +3,7 @@ import { RbacApprovals } from '../components/intel/RbacApprovals'
 import { AlertRules } from '../components/intel/AlertRules'
 import { SegmentsCohort } from '../components/intel/SegmentsCohort'
 import { AbIntegrations } from '../components/intel/AbIntegrations'
+import { LoggingSpec } from '../components/intel/LoggingSpec'
 
 /** 운영 인텔리전스 — enterprise governance + intelligence + integrations. */
 export function IntelPage() {
@@ -13,6 +14,7 @@ export function IntelPage() {
       <AlertRules />
       <SegmentsCohort />
       <AbIntegrations />
+      <LoggingSpec />
     </div>
   )
 }
