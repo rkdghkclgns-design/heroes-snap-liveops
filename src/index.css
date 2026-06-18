@@ -1,0 +1,134 @@
+/* ===========================================================
+   히어로즈 스냅 운영툴 — global base styles
+   Ported from the Claude Design prototype (helmet <style>).
+   =========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: #0e1422;
+  color: #161b26;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(108, 77, 246, 0.22);
+}
+
+/* ---- scrollbars (light data canvas) ---- */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #c7cedb;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #a9b2c2;
+  background-clip: content-box;
+}
+
+/* ---- scrollbars (dark command-center chrome) ---- */
+.dk::-webkit-scrollbar-thumb {
+  background: #2a3550;
+  background-clip: content-box;
+}
+
+/* ---- keyframes ---- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes drawerIn {
+  from {
+    transform: translateX(28px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modalIn {
+  from {
+    transform: translateY(14px) scale(0.985);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes toastIn {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes growBar {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* ---- print (종합 보고서 — 대표자 보고용) ---- */
+@media print {
+  aside,
+  header,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  main {
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  .report-body {
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+  @page {
+    margin: 14mm;
+  }
+}
