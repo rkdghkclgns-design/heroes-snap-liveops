@@ -25,6 +25,7 @@ import {
 } from '../data/mail'
 import { DEFAULT_PITY, DEFAULT_SOFT, DEFAULT_PICKUP, type BannerKey } from '../data/gacha'
 import type { PayGran } from '../data/payments'
+import { INITIAL_ALERT_RULES, type AlertRule } from '../data/intel'
 
 export const PAGE_SIZE = 8
 
@@ -113,6 +114,9 @@ interface State {
   // ---- payments ----
   payGran: PayGran
 
+  // ---- enterprise / intel ----
+  alertRules: AlertRule[]
+
   // ---- toast ----
   toast: string | null
 }
@@ -194,6 +198,9 @@ interface Actions {
   // payments
   setPayGran: (g: PayGran) => void
 
+  // enterprise / intel
+  toggleAlertRule: (id: string) => void
+
   showToast: (msg: string) => void
 }
 
@@ -264,6 +271,8 @@ export const useStore = create<State & Actions>((set, get) => ({
   glOpen: '스테이지 (메인)',
 
   payGran: 'day',
+
+  alertRules: INITIAL_ALERT_RULES,
 
   toast: null,
 
@@ -491,6 +500,9 @@ export const useStore = create<State & Actions>((set, get) => ({
 
   // ---------- payments ----------
   setPayGran: (payGran) => set({ payGran }),
+
+  // ---------- enterprise / intel ----------
+  toggleAlertRule: (id) => set((s) => ({ alertRules: s.alertRules.map((r) => (r.id === id ? { ...r, on: !r.on } : r)) })),
 
   // ---------- toast ----------
   showToast: (toast) => {

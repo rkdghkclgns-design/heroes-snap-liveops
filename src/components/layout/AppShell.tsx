@@ -10,6 +10,7 @@ import { MailPage } from '../../pages/MailPage'
 import { GachaPage } from '../../pages/GachaPage'
 import { GameLogPage } from '../../pages/GameLogPage'
 import { PaymentsPage } from '../../pages/PaymentsPage'
+import { IntelPage } from '../../pages/IntelPage'
 import { PlaceholderPage } from '../../pages/PlaceholderPage'
 import type { PageId } from '../../data/nav'
 import { c } from '../../theme/tokens'
@@ -22,6 +23,7 @@ const PAGES: Partial<Record<PageId, () => JSX.Element>> = {
   gacha: GachaPage,
   gamelog: GameLogPage,
   payments: PaymentsPage,
+  intel: IntelPage,
 }
 
 export function AppShell() {
