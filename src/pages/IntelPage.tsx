@@ -2,11 +2,10 @@ import { PageHeader } from '../components/ui/PageHeader'
 import { RbacApprovals } from '../components/intel/RbacApprovals'
 import { AlertRules } from '../components/intel/AlertRules'
 import { SegmentsCohort } from '../components/intel/SegmentsCohort'
-import { AbIntegrations } from '../components/intel/AbIntegrations'
 import { LoggingSpec } from '../components/intel/LoggingSpec'
 import { ContentTracking } from '../components/intel/ContentTracking'
 
-/** 운영 인텔리전스 — enterprise governance + intelligence + integrations. */
+/** 운영 인텔리전스 — enterprise governance + intelligence + logging/tracking specs. */
 export function IntelPage() {
   return (
     <div>
@@ -14,7 +13,6 @@ export function IntelPage() {
       <RbacApprovals />
       <AlertRules />
       <SegmentsCohort />
-      <AbIntegrations />
       <LoggingSpec />
       <ContentTracking />
     </div>
