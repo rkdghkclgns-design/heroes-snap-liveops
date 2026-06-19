@@ -12,6 +12,14 @@ import { GameLogPage } from '../../pages/GameLogPage'
 import { PaymentsPage } from '../../pages/PaymentsPage'
 import { IntelPage } from '../../pages/IntelPage'
 import { CharacterPage } from '../../pages/CharacterPage'
+import { LogsPage } from '../../pages/LogsPage'
+import { ReportPage } from '../../pages/ReportPage'
+import { EventPage } from '../../pages/EventPage'
+import { RewardPage } from '../../pages/RewardPage'
+import { ShopPage } from '../../pages/ShopPage'
+import { MissionPage } from '../../pages/MissionPage'
+import { KpiPage } from '../../pages/KpiPage'
+import { KnowledgePage } from '../../pages/KnowledgePage'
 import { PlaceholderPage } from '../../pages/PlaceholderPage'
 import type { PageId } from '../../data/nav'
 import { c } from '../../theme/tokens'
@@ -26,6 +34,14 @@ const PAGES: Partial<Record<PageId, () => JSX.Element>> = {
   payments: PaymentsPage,
   intel: IntelPage,
   character: CharacterPage,
+  logs: LogsPage,
+  report: ReportPage,
+  event: EventPage,
+  reward: RewardPage,
+  shop: ShopPage,
+  mission: MissionPage,
+  metrics: KpiPage,
+  knowledge: KnowledgePage,
 }
 
 export function AppShell() {

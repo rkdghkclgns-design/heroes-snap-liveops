@@ -16,8 +16,8 @@ npm run preview   # serve the production build
 
 ## What's implemented
 
-**Nine CMS screens are built deeply and interactively**, on a full app shell + design system,
-with every remaining module scaffolded behind the same navigation.
+**All 17 CMS screens are built deeply and interactively** on a full app shell + design system —
+no placeholders remain.
 
 **Deep (fully built & interactive):**
 
@@ -45,9 +45,19 @@ with every remaining module scaffolded behind the same navigation.
 - **캐릭터 / 유닛 (Characters)** — the **real ProjectA roster (45 units, parsed from `UnitMaster.csv`)**
   with rarity/element distribution charts, rarity + element filters, and a detail drawer showing the
   actual base stats (HP/ATK/DEF/Speed) and rarity level caps (from `GameConstMaster`).
-
-**Scaffolded** (consistent placeholder, ready to fill following the same patterns):
-로그/모니터링 · 종합 보고서 · 이벤트 · 일차/누적 보상 · 상점/패키지 · 미션/업적 · KPI · 지식베이스.
+- **로그 / 모니터링 (Logs)** — operator audit log with a type filter (재화/제재/쿠폰/우편).
+- **종합 보고서 (Report)** — printable executive report aggregating monetization, game, payment, and
+  liveops metrics with an executive summary (print/PDF via `@media print`).
+- **이벤트 (Events)** — event cards with on/off toggle + edit modal, a 14-day attendance reward grid,
+  and a bulk reward editor (per-day quantity + multiplier).
+- **일차 · 누적 보상 (Idle Rewards)** — idle reward tiers + a max-accumulation-hours slider with preview.
+- **상점 / 패키지 (Shop)** — package grid with forced-sales master switch + per-package on/off, plus
+  season/premium pass cards.
+- **미션 / 업적 (Missions)** — daily/weekly/achievement tabs, per-mission ON/OFF toggle, and edit modal.
+- **KPI** — revenue simulator (DAU/ARPDAU/conversion sliders → ₩ month/year), editable KPI targets vs.
+  current, and a BEP scenario simulator (5 presets, 8 sliders, 12-month cumulative-profit chart).
+- **지식베이스 (Knowledge)** — searchable 80-term monetization glossary across 10 categories with
+  definitions, formulas, and low/median/high benchmarks.
 
 ## Architecture
 
