@@ -16,7 +16,7 @@ npm run preview   # serve the production build
 
 ## What's implemented
 
-**All 17 CMS screens are built deeply and interactively** on a full app shell + design system —
+**All 18 CMS screens are built deeply and interactively** on a full app shell + design system —
 no placeholders remain.
 
 **Deep (fully built & interactive):**
@@ -36,6 +36,9 @@ no placeholders remain.
   and a revenue-sorted per-product table with share bars + CSV.
 - **우편 / 보상 (Mail)** — compose (title/body/target + custom user-IDs/schedule/reward builder/
   summary) with state-backed immediate or reserved send, plus a send-history list.
+- **고객 문의 (Inquiries)** — CS inbox: status summary cards that double as quick-filters, category +
+  status filters, a ticket table (문의일자 · 분류 · UUID · 제목 · 채널 · 상태), and a slide-in detail
+  drawer showing the full body with editable processing **status / handler / result**, plus CSV export.
 - **뽑기 설정 (Gacha)** — banner tabs (픽업/유닛/통합), per-rarity rate table, editable hard/soft
   pity per banner, and a pickup-character selector.
 - **운영 인텔리전스 (Ops Intelligence)** — enterprise governance + intelligence: RBAC role card

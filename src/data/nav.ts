@@ -10,6 +10,7 @@ export type PageId =
   | 'report'
   | 'coupon'
   | 'mail'
+  | 'inquiry'
   | 'event'
   | 'reward'
   | 'shop'
@@ -49,6 +50,7 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       { id: 'coupon', label: '쿠폰 관리', badge: '4' },
       { id: 'mail', label: '우편 / 보상', badge: '2' },
+      { id: 'inquiry', label: '고객 문의', badge: '4' },
       { id: 'event', label: '이벤트' },
       { id: 'reward', label: '일차 · 누적 보상' },
     ],
@@ -88,6 +90,7 @@ export const PAGE_ICON: Record<PageId, IconName> = {
   report: 'report',
   coupon: 'coupon',
   mail: 'mail',
+  inquiry: 'inquiry',
   event: 'event',
   reward: 'reward',
   shop: 'shop',
@@ -109,6 +112,7 @@ export const PAGE_DESC: Record<PageId, string> = {
   report: '대표자 보고용 종합 보고서',
   coupon: '쿠폰 코드 생성 · 기간/사용 제한 · 발급 현황',
   mail: '우편 / 보상 발송 · 대상 지정',
+  inquiry: '고객 문의 접수 · 분류 · 처리 결과 관리',
   event: '출석부 · 누적 · 미션 이벤트',
   reward: '일차 · 누적 보상 설정',
   shop: '상점 / 패키지 · 패스권 · 강제 판매 제어',

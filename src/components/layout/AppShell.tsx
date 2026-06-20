@@ -7,6 +7,7 @@ import { DashboardPage } from '../../pages/DashboardPage'
 import { UsersPage } from '../../pages/UsersPage'
 import { CouponsPage } from '../../pages/CouponsPage'
 import { MailPage } from '../../pages/MailPage'
+import { InquiryPage } from '../../pages/InquiryPage'
 import { GachaPage } from '../../pages/GachaPage'
 import { GameLogPage } from '../../pages/GameLogPage'
 import { PaymentsPage } from '../../pages/PaymentsPage'
@@ -29,6 +30,7 @@ const PAGES: Partial<Record<PageId, () => JSX.Element>> = {
   users: UsersPage,
   coupon: CouponsPage,
   mail: MailPage,
+  inquiry: InquiryPage,
   gacha: GachaPage,
   gamelog: GameLogPage,
   payments: PaymentsPage,
