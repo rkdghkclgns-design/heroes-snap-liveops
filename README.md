@@ -36,9 +36,13 @@ no placeholders remain.
   and a revenue-sorted per-product table with share bars + CSV.
 - **우편 / 보상 (Mail)** — compose (title/body/target + custom user-IDs/schedule/reward builder/
   summary) with state-backed immediate or reserved send, plus a send-history list.
-- **고객 문의 (Inquiries)** — CS inbox: status summary cards that double as quick-filters, category +
-  status filters, a ticket table (문의일자 · 분류 · UUID · 제목 · 채널 · 상태), and a slide-in detail
-  drawer showing the full body with editable processing **status / handler / result**, plus CSV export.
+- **고객 문의 (Inquiries)** — two views behind one tab toggle. **운영 인박스**: status summary cards
+  that double as quick-filters, category + status filters, a ticket table
+  (문의일자 · 분류 · UUID · 제목 · 채널 · 상태), a slide-in detail drawer with editable processing
+  **status / handler / result**, and CSV export. **문의 접수 (고객 화면)**: the player-facing,
+  dark game-themed submission form (7-category picker → title / body / UUID·email) that, on submit,
+  shows a receipt screen with a generated ticket number (`HS-XXXXXX-NNN`) and **feeds the new ticket
+  straight into the operator inbox**.
 - **뽑기 설정 (Gacha)** — banner tabs (픽업/유닛/통합), per-rarity rate table, editable hard/soft
   pity per banner, and a pickup-character selector.
 - **운영 인텔리전스 (Ops Intelligence)** — enterprise governance + intelligence: RBAC role card

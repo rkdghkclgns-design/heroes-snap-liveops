@@ -5,10 +5,12 @@
    =========================================================== */
 
 export type InquiryCategory =
-  | 'payment'
   | 'account'
+  | 'payment'
   | 'bug'
   | 'gameplay'
+  | 'item'
+  | 'sanction'
   | 'report'
   | 'suggestion'
   | 'etc'
@@ -36,15 +38,18 @@ export interface Inquiry {
   result: string
 }
 
-/** Classification badge — label + accent/background. */
+/** Classification badge — label + accent/background. Colors align with the
+    customer-form diamond palette so the two views share one color language. */
 export const INQ_CAT_META: Record<InquiryCategory, { label: string; col: string; bg: string }> = {
-  payment: { label: '결제/환불', col: '#E5484D', bg: '#FDECEC' },
-  account: { label: '계정', col: '#2D7FF9', bg: '#E8F1FE' },
-  bug: { label: '버그/오류', col: '#E8920C', bg: '#FDF3E1' },
-  gameplay: { label: '게임플레이', col: '#15A35B', bg: '#E6F7EE' },
+  account: { label: '계정', col: '#3B82F6', bg: '#E8F1FE' },
+  payment: { label: '결제/환불', col: '#E8920C', bg: '#FDF3E1' },
+  bug: { label: '버그/오류', col: '#F43F5E', bg: '#FDECEC' },
+  gameplay: { label: '게임플레이', col: '#8B5CF6', bg: '#F1ECFB' },
+  item: { label: '캐릭터/아이템', col: '#10B981', bg: '#E6F7EE' },
+  sanction: { label: '제재/정지', col: '#F97316', bg: '#FFF1E6' },
   report: { label: '유저 신고', col: '#9333EA', bg: '#F3E8FE' },
   suggestion: { label: '건의', col: '#14A6C4', bg: '#E2F6FA' },
-  etc: { label: '기타', col: '#5B6478', bg: '#F1F3F8' },
+  etc: { label: '기타', col: '#38BDF8', bg: '#E6F6FE' },
 }
 
 /** Processing status badge — label + accent/background. */
@@ -59,14 +64,43 @@ export const INQ_STATUS_ORDER: InquiryStatus[] = ['pending', 'progress', 'done']
 export type InqCatFilter = InquiryCategory | 'all'
 export const INQ_CAT_FILTERS: [InqCatFilter, string][] = [
   ['all', '전체'],
-  ['payment', '결제/환불'],
   ['account', '계정'],
+  ['payment', '결제/환불'],
   ['bug', '버그/오류'],
   ['gameplay', '게임플레이'],
+  ['item', '캐릭터/아이템'],
+  ['sanction', '제재/정지'],
   ['report', '유저 신고'],
   ['suggestion', '건의'],
   ['etc', '기타'],
 ]
+
+/** Customer-facing submission form — the categories a player can choose,
+    in display order, with the long player-facing labels (see mockup). */
+export const CUSTOMER_CAT_ORDER: { key: InquiryCategory; label: string }[] = [
+  { key: 'account', label: '계정 문제 (로그인·연동)' },
+  { key: 'payment', label: '결제 및 환불 문의' },
+  { key: 'bug', label: '버그 및 오류 신고' },
+  { key: 'gameplay', label: '게임 진행 / 플레이 문제' },
+  { key: 'item', label: '캐릭터 및 아이템 문제' },
+  { key: 'sanction', label: '계정 제재 / 정지 문의' },
+  { key: 'etc', label: '기타 문의' },
+]
+
+/** Generate a customer-facing ticket number, e.g. HS-LYYI8W-220. */
+export function genTicketId(): string {
+  const A = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+  let s = ''
+  for (let i = 0; i < 6; i++) s += A[Math.floor(Math.random() * A.length)]
+  const n = Math.floor(Math.random() * 900) + 100
+  return `HS-${s}-${n}`
+}
+
+/** Format a Date as `YYYY-MM-DD HH:mm` for a freshly submitted ticket. */
+export function stampNow(d: Date): string {
+  const p = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`
+}
 
 /** Seed inbox — 14 realistic tickets across categories and statuses. */
 export const INITIAL_INQUIRIES: Inquiry[] = [
